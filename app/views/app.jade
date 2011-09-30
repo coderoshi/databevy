@@ -21,7 +21,27 @@ html(lang:"en")
 
     script(src="http://autobahn.tablesorter.com/jquery.tablesorter.min.js")
   body
-    include includes/topbar
+    // include includes/topbar
+    .topbar
+      .fill
+        .container
+          a.brand(href="#") Data Bevy
+          ul.nav
+            li.dropdown.active
+              a.dropdown-toggle(href="#") Databases
+              ul.dropdown-menu
+                li.active: a(href="#riak") Riak
+                li: a(href="#neo4j") Neo4j
+                li.divider
+                li: a(href="#") Add New Database
+            li: a(href="#account") Account
+            li: a(href="#account") Help
+          form.pull-right(action="")
+            input.input-small(type="text", placeholder="Username")
+            input.input-small(type="password", placeholder="Password")
+            |&nbsp;
+            button.btn(type="submit") Sign in
+    
 
     //- TODO: this should be in templates?
     .container
@@ -39,16 +59,73 @@ html(lang:"en")
             //-  | herp
         
         #riak
-          include includes/breadcrumbs
+          // include includes/breadcrumbs
+          ul.breadcrumb
+            li
+              a(href="#") All Databases
+              span.divider &gt;
+            li
+              a(href="#") Riak
+              span.divider &gt;
+            li.active
+              | my_instance_name
+          
           
           .page-header
             h1: a(href="http://wiki.basho.com/"): img(src="http://wiki.basho.com/images/riaklogo.png")
           
           .row
             .span10
-              include includes/riak
+              // include includes/riak
+              
+              // h2.instance_name my_instance_name
+              //- Data Capacity  Data Available
+
+              ul.tabs
+                li.profile.active: a(href="#profile") Profile
+                li.buckets: a(href="#buckets", rel="hovertip", data-original-title="List of your buckets and related values") Buckets
+                li.query: a(href="#query", rel="hovertip", data-original-title="Execute some basic queries") Query
+                //-
+                  li.users: a(href="#users", rel="hovertip", data-original-title="Other user accounts") Users
+                  li.help: a(href="#help") Help
+                  li.dropdown(data-dropdown="dropdown")
+                    a.dropdown-toggle(href="#") More
+                    ul.dropdown-menu
+                      li: a(href="#query") A Link
+                      li: a(href="#query") Another Link
+                      li.divider
+                      li: a(href="#query") More Links
+              .tab-content
+                #profile.active
+                  //-
+                    p
+                      <span class="label">Notice</span> Here is a little, <a href="#" rel="hovertip" data-original-title="This is a little hover tip">notice</a> with code: <code>mapreduce(function(obj){...})</code>.
+
+                #buckets
+
+                #query
+                  | some form to enter query strings
+              
+              
             .span4
-              include includes/side_menu
+              // include includes/side_menu
+              
+              //- h3 Manage This Server
+              a#createdb-btn.btn.success(href="#", rel="popover", data-content="This will create a new bucket.", data-original-title="Create Bucket") Create a New Bucket
+              br
+              br
+              a#deletedb-btn.btn.danger(href="#", rel="popover", data-content="This will delete this database instance, and you'll lose all data contained within. Be sure you really mean it.", data-original-title="Warning!", data-controls-modal="deletedb", data-backdrop="static") Delete This Database
+              #deletedb.modal.hide.fade
+                .modal-header
+                  a.close(href="#")&times;
+                  h3 Deleting a Database
+                .modal-body
+                  p Are you <strong>sure</strong> you want to destroy this database instance?
+                  p <em>All</em> of your data will be lost.
+                .modal-footer
+                  a.btn.primary(href="#") Primary
+                  a.btn.secondary(href="#") Secondary
+              
         
       footer
         p &copy; DataBevy 2011
