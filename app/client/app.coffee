@@ -19,11 +19,11 @@ exports.init = ->
   displayStats()
 
 
+
 displayStats = ->
   if window.__displayStats? then return true else window.__displayStats = true
   SS.server.app.stats (stats) ->
-    $('#templates-profile').tmpl({stats: JSON.stringify(stats, null, '\t')}).hide().appendTo('#profile').fadeIn()
-    # $('#profile').append(stats)
+    $('#templates-profile').tmpl({stats: JSON.stringify(stats.stats, null, '\t'), connect: stats.connect}).hide().appendTo('#profile').fadeIn()
 
 displayBuckets = ->
   if window.__displayBuckets? then return true else window.__displayBuckets = true

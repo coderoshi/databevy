@@ -9,3 +9,4 @@ global.Riak = riak.getClient
 
 # neo4j = require 'neo4j'
 # global.Neo4j = new neo4j.GraphDatabase(riak_config.url)
+

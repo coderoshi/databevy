@@ -9,7 +9,7 @@ exports.actions =
   stats: (cb) ->
     global.Riak.stats( (err, stats, meta)->
       return cb(err) if err
-      cb(stats)
+      cb({stats : stats, connect: "#{SS.config.db.riak.host}:#{SS.config.db.riak.port}"})
     )
   
   buckets: (cb) ->
