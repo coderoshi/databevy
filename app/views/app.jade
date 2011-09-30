@@ -1,0 +1,70 @@
+!!! 5  
+html(lang:"en")  
+  head  
+    meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")  
+    meta(name="description", content="")
+    meta(name="author", content="")
+    //- meta(name="apple-mobile-web-app-capable", content="yes")
+    //- meta(name="apple-mobile-web-app-status-bar-style", content="black-translucent")
+    //- meta(name="viewport", content="width = 1024, initial-scale = 1, user-scalable = no")
+
+    //if lt IE 9
+      script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")
+
+    != SocketStream
+    title DataBevy
+    link(rel="shortcut icon", href="images/favicon.ico")
+    link(rel="apple-touch-icon", href="images/apple-touch-icon.png")
+    link(rel="apple-touch-icon", sizes="72x72", href="images/apple-touch-icon-72x72.png")
+    link(rel="apple-touch-icon", sizes="114x114", href="images/apple-touch-icon-114x114.png")
+    //- link(href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz', rel='stylesheet', type='text/css')
+
+    script(src="http://autobahn.tablesorter.com/jquery.tablesorter.min.js")
+  body
+    include includes/topbar
+
+    //- TODO: this should be in templates?
+    .container
+      .content
+        #alerts
+        
+        #account.hide
+          .page-header
+            h1 Account <small>Manage your account from here</small>
+          
+          .row
+            .span10
+              | derp
+            //- .span4
+            //-  | herp
+        
+        #riak
+          include includes/breadcrumbs
+          
+          .page-header
+            h1: a(href="http://wiki.basho.com/"): img(src="http://wiki.basho.com/images/riaklogo.png")
+          
+          .row
+            .span10
+              include includes/riak
+            .span4
+              include includes/side_menu
+        
+      footer
+        p &copy; DataBevy 2011
+
+    :coffeescript
+      $('.topbar').dropdown()
+      $('.alert-message').alert()
+      $('.alert-message .close, .alert-message .cancel').live 'click', (e) ->
+        $(this).parents('.alert-message').slideUp('fast')
+        false
+      
+      $('a[rel=hovertip]').twipsy()
+      $('.tabs').tabs()
+      $('a[rel=popover]').popover({placement: 'left', offset: 10}).click (e) ->
+        e.preventDefault()
+      
+      $('#deletedb-btn').modal({
+        closeOnEscape: true
+      })

@@ -1,0 +1,19 @@
+.topbar
+  .fill
+    .container
+      a.brand(href="#") Data Bevy
+      ul.nav
+        li.dropdown.active
+          a.dropdown-toggle(href="#") Databases
+          ul.dropdown-menu
+            li.active: a(href="#riak") Riak
+            li: a(href="#neo4j") Neo4j
+            li.divider
+            li: a(href="#") Add New Database
+        li: a(href="#account") Account
+        li: a(href="#account") Help
+      form.pull-right(action="")
+        input.input-small(type="text", placeholder="Username")
+        input.input-small(type="password", placeholder="Password")
+        |&nbsp;
+        button.btn(type="submit") Sign in

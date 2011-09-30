@@ -1,0 +1,13 @@
+table.zebra-striped.buckets
+  thead
+    tr
+      th.blue.header Bucket Name
+      th.header Keys Count
+      //- th.header Data Used
+  tbody
+    {{each buckets}}
+    tr.bucket
+      td.name ${$value}
+      td.count ?
+      //- td.size 234 MB
+    {{/each}}

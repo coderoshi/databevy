@@ -1,0 +1,13 @@
+{
+  "name": "riakapp",
+  "description": "An awesome real time application",
+  "version": "0.1.0",
+  "author": "Eric Redmond <eric.redmond@gmail.com>",
+  "engines": { "node": ">= 0.4.0 < 0.5.0" },
+  "dependencies": {
+    "socketstream": "~>0.2.0",
+    "riak-js":  "~>0.4.0",
+    "mongodb":  "0.9.6-15",
+    "less": "~>1.1.3"
+  }
+}

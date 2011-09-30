@@ -1,0 +1,15 @@
+//- h3 Manage This Server
+a#createdb-btn.btn.success(href="#", rel="popover", data-content="This will create a new bucket.", data-original-title="Create Bucket") Create a New Bucket
+br
+br
+a#deletedb-btn.btn.danger(href="#", rel="popover", data-content="This will delete this database instance, and you'll lose all data contained within. Be sure you really mean it.", data-original-title="Warning!", data-controls-modal="deletedb", data-backdrop="static") Delete This Database
+#deletedb.modal.hide.fade
+  .modal-header
+    a.close(href="#")&times;
+    h3 Deleting a Database
+  .modal-body
+    p Are you <strong>sure</strong> you want to destroy this database instance?
+    p <em>All</em> of your data will be lost.
+  .modal-footer
+    a.btn.primary(href="#") Primary
+    a.btn.secondary(href="#") Secondary

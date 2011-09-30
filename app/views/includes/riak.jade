@@ -1,0 +1,27 @@
+// h2.instance_name my_instance_name
+//- Data Capacity  Data Available
+
+ul.tabs
+  li.profile.active: a(href="#profile") Profile
+  li.buckets: a(href="#buckets", rel="hovertip", data-original-title="List of your buckets and related values") Buckets
+  li.query: a(href="#query", rel="hovertip", data-original-title="Execute some basic queries") Query
+  //-
+    li.users: a(href="#users", rel="hovertip", data-original-title="Other user accounts") Users
+    li.help: a(href="#help") Help
+    li.dropdown(data-dropdown="dropdown")
+      a.dropdown-toggle(href="#") More
+      ul.dropdown-menu
+        li: a(href="#query") A Link
+        li: a(href="#query") Another Link
+        li.divider
+        li: a(href="#query") More Links
+.tab-content
+  #profile.active
+    //-
+      p
+        <span class="label">Notice</span> Here is a little, <a href="#" rel="hovertip" data-original-title="This is a little hover tip">notice</a> with code: <code>mapreduce(function(obj){...})</code>.
+  
+  #buckets
+  
+  #query
+    | some form to enter query strings
