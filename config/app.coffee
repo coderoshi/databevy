@@ -7,9 +7,9 @@
 exports.config =
 
   # HTTP server (becomes secondary server when HTTPS is enabled)
-  http:
-    port:         3000
-    hostname:     "0.0.0.0"
+  # http:
+  #   port:         3000
+  #   hostname:     "0.0.0.0"
   
   # HTTPS server (becomes primary server if enabled)
   https:
