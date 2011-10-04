@@ -32,7 +32,7 @@ displayBuckets = ->
     $("#buckets table.buckets").tablesorter({ sortList: [[0,0]] })
 
 displayCount = (bucket) ->
-  $("td.name:contains('#{bucket.bucket}') ~ td.count").html(bucket.count)
+  $("td.name a:contains('#{bucket.bucket}')").parents('tr').find('td.count').html(bucket.count)
 
 displayAlert = (status, message) ->
   $('#templates-alert').tmpl({status: status, message: message}).hide().appendTo('#alerts').fadeIn()
